@@ -60,7 +60,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: 34.122.55.90.nip.io  # replace with your LoadBalancer IP
+    - host: 10.96.73.27.nip.io  # replace with your INGRESS-NGINX-CONTROLLER LoadBalancer CLUSTER-IP NOT EXTERNAL-IP
       http:
         paths:
           - path: /
