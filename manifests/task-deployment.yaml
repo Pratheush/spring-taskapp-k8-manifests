@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: task-app
-          image: pratheush/spring-taskapp-jenkins-k8-cicd:latest
+          image: pratheush/spring-taskapp-jenkins-k8-cicd:6f00ecc
           imagePullPolicy: Always
           ports:
             - containerPort: 9393
@@ -50,6 +50,9 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 9393
+  template:
+    spec:
+      containers: []
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -60,7 +63,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: 10.96.73.27.nip.io  # replace with your INGRESS-NGINX-CONTROLLER LoadBalancer CLUSTER-IP NOT EXTERNAL-IP
+    - host: 10.96.73.27.nip.io # replace with your INGRESS-NGINX-CONTROLLER LoadBalancer CLUSTER-IP NOT EXTERNAL-IP
       http:
         paths:
           - path: /
@@ -70,3 +73,6 @@ spec:
                 name: task-app-service
                 port:
                   number: 80
+  template:
+    spec:
+      containers: []
