@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: task-app
-          image: pratheush/spring-taskapp-jenkins-k8-cicd:latest
+          image: pratheush/spring-taskapp-jenkins-k8-cicd:d7c2446
           imagePullPolicy: Always
           ports:
             - containerPort: 9393
